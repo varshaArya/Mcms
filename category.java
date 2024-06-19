@@ -1,6 +1,7 @@
 package Mcms.Intro;
 
 import java.time.Duration;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -13,85 +14,119 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
+
 public class category extends Login {
 
 	@Test
 	public void cat() throws InterruptedException {
-		
-		
+
+		test.pass(" Method 1.1 : create a new project");
+
 		driver.findElement(By.xpath("//button[@class='form_save add_new_project']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("website_name")).sendKeys("Testcascade.com");
+
+		driver.findElement(By.id("website_name")).sendKeys("Testing1234.com");
 		Thread.sleep(2000);
+		// test1.pass("Add a new Project to Mcms");
 		driver.findElement(By.xpath("//input[@id='website_url']")).sendKeys("testproject");
 		driver.findElement(By.xpath("//button[@class='btn btn-primary']")).click();
-	    driver.findElement(By.xpath("(//a[contains(text(),'Categories')])[1]")).click();
-	    driver.findElement(By.id("category_name")).sendKeys("Entertainment");
-	    driver.findElement(By.id("category_alias")).sendKeys("Dummycat");
-	    
-	    
-	    // select dropdown with select tag 
-	    WebElement staticDropdown= driver.findElement(By.id("category_type"));
-	    Select dropdown= new Select(staticDropdown);
-	    dropdown.selectByIndex(7);
-	    
-	    Thread.sleep(2000);
-	    //driver.findElement(By.name("category_icon")).click();
-	    driver.findElement(By.xpath("//input[@name='category_rss']")).clear();
-	    driver.findElement(By.xpath("//input[@name='category_rss']")).sendKeys("https://api.indiatvnews.com/v3/en/qp745artfGgfgSrs9o0i/appfeed/subcategory/200");
-	    driver.findElement(By.id("validate_feed")).click();
-	     
-        WebElement source =  driver.findElement(By.xpath("//li[@id='Articleid']")); //draggable
-        WebElement target =  driver.findElement(By.id("ul_post_id"));//droppable
-        
-        WebElement source1 = driver.findElement(By.id("pubDate"));
-	    WebElement target1 = driver.findElement(By.id("ul_published_date"));
-	    
-	    WebElement source2 = driver.findElement(By.xpath("(//li[@id='title'])[1]"));
-	    WebElement target2 = driver.findElement(By.xpath("(//ul[@id='ul_post_title'])[1]"));
 
-	    WebElement source3 = driver.findElement(By.id("description"));
-	    WebElement target3 = driver.findElement(By.id("ul_post_content"));
-	    
-	    WebElement source4 = driver.findElement(By.id("fullimage"));
-	    WebElement target4 = driver.findElement(By.id("ul_post_fullimage"));
-	    
-	    WebElement source5 = driver.findElement(By.id("link"));
-	    WebElement target5 = driver.findElement(By.id("ul_share_url"));
-	    
-	    Thread.sleep(2000); 
-	    WebElement source6 = driver.findElement(By.xpath("(//li[@id='authorname'])[1]"));
-	    WebElement target6 = driver.findElement(By.xpath("(//ul[@id='ul_post_author'])[1]"));
-	    
-	    WebElement source8 =  driver.findElement(By.xpath("(//li[@id='tags'])[1]"));
-	    WebElement target8 =  driver.findElement(By.xpath("(//ul[@id='ul_tags'])[1]"));
-	    
-	    WebElement source9 =  driver.findElement(By.xpath("(//li[@id='thumbimage'])[1] "));
-	    WebElement target9 =  driver.findElement(By.xpath("(//ul[@id='ul_post_thumbimage'])[1] "));
-	    
-	    WebElement source10 = driver.findElement(By.xpath("(//li[@id='is_live_story'])[1] "));
-	    WebElement target10 = driver.findElement(By.xpath("(//ul[@id='ul_live_story'])[1]"));
-	    
-          Actions a = new Actions(driver);
-          a.dragAndDrop(source,target).build().perform();
-	      a.dragAndDrop(source1,target1).build().perform();
-	      a.dragAndDrop(source2,target2).build().perform();
-	      a.dragAndDrop(source3,target3).build().perform();
-	      a.dragAndDrop(source4,target4).build().perform();
-	      a.dragAndDrop(source5,target5).build().perform();
-	      a.dragAndDrop(source6,target6).build().perform();
-	      a.dragAndDrop(source8,target8).build().perform();
-	      a.dragAndDrop(source9,target9).build().perform();
-	      a.dragAndDrop(source10,target10).build().perform();
-	      
-	      Thread.sleep(2000);
-		  driver.findElement(By.xpath("//button[@id='submit_step']")).click();
-		  
-		  Alert alert = driver.switchTo().alert(); 
-		     alert.accept();  
-		   
-		     
-		   
+		test.pass(" Method 1.2 : successfully navigated to categories");
+
+		driver.findElement(By.xpath("(//div[@class='sections'])[11]")).click();
+		// driver.findElement(By.xpath("(//a[contains(text(),'Categories')])[1]")).click();
+		driver.findElement(By.id("category_name")).sendKeys("Entertainment");
+		driver.findElement(By.id("category_alias")).sendKeys("Dummycat");
+
+		// select dropdown with select tag
+		WebElement staticDropdown = driver.findElement(By.id("category_type"));
+		Select dropdown = new Select(staticDropdown);
+		dropdown.selectByIndex(7);
+
+		Thread.sleep(2000);
+		// driver.findElement(By.name("category_icon")).click();
+		driver.findElement(By.xpath("//input[@name='category_rss']")).clear();
+		driver.findElement(By.xpath("//input[@name='category_rss']"))
+				.sendKeys("https://api.indiatvnews.com/v3/en/qp745artfGgfgSrs9o0i/appfeed/subcategory/200");
+		driver.findElement(By.id("validate_feed")).click();
+
+		test.pass(" Method 1.3 : Xml feed got validated");
+
+		WebElement source = driver.findElement(By.xpath("//li[@id='Articleid']")); // draggable
+		WebElement target = driver.findElement(By.id("ul_post_id"));// droppable
+
+		WebElement source1 = driver.findElement(By.id("pubDate"));
+		WebElement target1 = driver.findElement(By.id("ul_published_date"));
+
+		WebElement source2 = driver.findElement(By.xpath("(//li[@id='title'])[1]"));
+		WebElement target2 = driver.findElement(By.xpath("(//ul[@id='ul_post_title'])[1]"));
+
+		WebElement source3 = driver.findElement(By.id("description"));
+		WebElement target3 = driver.findElement(By.id("ul_post_content"));
+
+		WebElement source4 = driver.findElement(By.id("fullimage"));
+		WebElement target4 = driver.findElement(By.id("ul_post_fullimage"));
+
+		WebElement source5 = driver.findElement(By.id("link"));
+		WebElement target5 = driver.findElement(By.id("ul_share_url"));
+
+		Thread.sleep(2000);
+		WebElement source6 = driver.findElement(By.xpath("(//li[@id='authorname'])[1]"));
+		WebElement target6 = driver.findElement(By.xpath("(//ul[@id='ul_post_author'])[1]"));
+
+		WebElement source8 = driver.findElement(By.xpath("(//li[@id='tags'])[1]"));
+		WebElement target8 = driver.findElement(By.xpath("(//ul[@id='ul_tags'])[1]"));
+
+		WebElement source9 = driver.findElement(By.xpath("(//li[@id='thumbimage'])[1] "));
+		WebElement target9 = driver.findElement(By.xpath("(//ul[@id='ul_post_thumbimage'])[1] "));
+
+		WebElement source10 = driver.findElement(By.xpath("(//li[@id='is_live_story'])[1] "));
+		WebElement target10 = driver.findElement(By.xpath("(//ul[@id='ul_live_story'])[1]"));
+
+		Actions a = new Actions(driver);
+		a.dragAndDrop(source, target).build().perform();
+		a.dragAndDrop(source1, target1).build().perform();
+		a.dragAndDrop(source2, target2).build().perform();
+		a.dragAndDrop(source3, target3).build().perform();
+		a.dragAndDrop(source4, target4).build().perform();
+		a.dragAndDrop(source5, target5).build().perform();
+		a.dragAndDrop(source6, target6).build().perform();
+		a.dragAndDrop(source8, target8).build().perform();
+		a.dragAndDrop(source9, target9).build().perform();
+		a.dragAndDrop(source10, target10).build().perform();
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[@id='submit_step']")).click();
+
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+
+		test.pass("category created successful");
+
+		// update category
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.cssSelector("a[href='/category/344/91822']")).click();
+		driver.findElement(By.xpath("//button[@id='submit_step']")).click();
+		Alert alert1 = driver.switchTo().alert();
+		alert1.accept();
+
+		// Delete category
+
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector("a[href='/category/344/91822']")).click();
+
+		driver.findElement(By.xpath("//button[contains(@id,'delete_step')]")).click();
+		Thread.sleep(2000);
+		Alert alert2 = driver.switchTo().alert();
+		alert2.accept();
+		Thread.sleep(2000);
+		Alert alert3 = driver.switchTo().alert();
+		alert3.accept();
+
+		
 
 	}
 

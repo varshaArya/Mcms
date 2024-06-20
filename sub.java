@@ -15,13 +15,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 @Test
-public class check extends Login {
+public class sub extends Login {
 
 	public void subuser() throws InterruptedException {
 
 		// subuser
-
-		test.pass("create the subuser");
 
 		driver.findElement(By.xpath("(//span[normalize-space()='Manage'])[1]")).click();
 		driver.findElement(By.xpath("(//ul[contains(@class,'sub_menu_dropdown')])[1]")).click();
@@ -41,9 +39,6 @@ public class check extends Login {
 
 		driver.findElement(By.xpath("(//input[@name='submit'])[1]")).click();
 
-		test.pass("subuser created successfully");
-
-		test.pass("switch to mail account");
 
 		// switch to new tab
 		driver.switchTo().newWindow(WindowType.TAB);
@@ -64,13 +59,11 @@ public class check extends Login {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[starts-with(text(),'Next')]")).click(); // click on next
 
-		test.pass("mail account verified successfully");
+	
 
 		Thread.sleep(4000);
 
 		// Inbox
-
-		test.pass("click on the readwhere account");
 
 		driver.findElement(By.xpath("(//div[@class='wT']//div[@class='aio UKr6le'])[1]")).click(); // go to inbox
 
@@ -88,10 +81,8 @@ public class check extends Login {
 		driver.findElement(By.xpath("(//input[@id='verifiedusersignupform-terms_accepted'])[1]")).click();
 		driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
 
-		test.pass("subuser verified successfully");
-      
 	
-
+	    driver.close();
+	    
 	}
-
 }

@@ -21,22 +21,21 @@ public class category extends Login {
 	@Test
 	public void cat() throws InterruptedException {
 
-		test.pass(" Method 1.1 : create a new project");
-
-		driver.findElement(By.xpath("//button[@class='form_save add_new_project']")).click();
+		
+        Thread.sleep(2000);
+		driver.findElement(By.xpath("form_save add_new_project")).click();
 		Thread.sleep(2000);
 
 		driver.findElement(By.id("website_name")).sendKeys("Testing1234.com");
 		Thread.sleep(2000);
-		// test1.pass("Add a new Project to Mcms");
+		
 		driver.findElement(By.xpath("//input[@id='website_url']")).sendKeys("testproject");
 		driver.findElement(By.xpath("//button[@class='btn btn-primary']")).click();
 
-		test.pass(" Method 1.2 : successfully navigated to categories");
 
 		driver.findElement(By.xpath("(//div[@class='sections'])[11]")).click();
 		// driver.findElement(By.xpath("(//a[contains(text(),'Categories')])[1]")).click();
-		driver.findElement(By.id("category_name")).sendKeys("Entertainment");
+		driver.findElement(By.id("category_name")).sendKeys("Testcategory");
 		driver.findElement(By.id("category_alias")).sendKeys("Dummycat");
 
 		// select dropdown with select tag
@@ -47,11 +46,10 @@ public class category extends Login {
 		Thread.sleep(2000);
 		// driver.findElement(By.name("category_icon")).click();
 		driver.findElement(By.xpath("//input[@name='category_rss']")).clear();
-		driver.findElement(By.xpath("//input[@name='category_rss']"))
-				.sendKeys("https://api.indiatvnews.com/v3/en/qp745artfGgfgSrs9o0i/appfeed/subcategory/200");
+		driver.findElement(By.xpath("//input[@name='category_rss']")).sendKeys("https://api.indiatvnews.com/v3/en/qp745artfGgfgSrs9o0i/appfeed/subcategory/200");
 		driver.findElement(By.id("validate_feed")).click();
 
-		test.pass(" Method 1.3 : Xml feed got validated");
+		
 
 		WebElement source = driver.findElement(By.xpath("//li[@id='Articleid']")); // draggable
 		WebElement target = driver.findElement(By.id("ul_post_id"));// droppable
@@ -102,7 +100,7 @@ public class category extends Login {
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 
-		test.pass("category created successful");
+		
 
 		// update category
 
@@ -126,6 +124,8 @@ public class category extends Login {
 		Alert alert3 = driver.switchTo().alert();
 		alert3.accept();
 
+		driver.close();
+		driver.quit();
 		
 
 	}

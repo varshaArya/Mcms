@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 @Test
 public class Mobi extends Login {
 
-	public void Mobi() throws InterruptedException {
+	public void Mobid() throws InterruptedException {
 
 		// importer
 
@@ -37,7 +37,7 @@ public class Mobi extends Login {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[starts-with(text(),'Next')]")).click(); // click on next
 
-		test.pass("mobiadmin login ");
+	
 
 		driver.findElement(By.xpath("(//span[@class='caret'])[1]")).click();
 		driver.findElement(By.linkText("Importer Stats")).click();
@@ -61,7 +61,9 @@ public class Mobi extends Login {
 		driver.findElement(By.xpath("//form[@id='combined_xmlform']//button[@name='submit-button']")).click();
 		driver.findElement(By.xpath("(//input[@id='go'])[1]")).click();
 
-		test.pass("importer on sucessfully");
+	
+		driver.close();
+		driver.quit();
 		
 
 		// Thread.sleep(4000);// <class name="Mcms.Intro.Mobi"/>
